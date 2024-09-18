@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import props from './profile-data'
 import Button from './button';
+import Icon from './Icon'
 
 const {name,login,bio, avatar_url, location, twitter_username,blog,followers,following} = props;
 const ProfileStyled = styled.div`
@@ -55,7 +56,12 @@ function Profile() {
                 />
                 <Button
                     text="Sponsor"
-                    Icon={<i>💜</i>}
+                    Icon={<Icon
+                        name="heart"
+                        size={24}
+                        color="var(--pink)"
+
+                    />}
                 />
             </div> 
             <p className='bio info'>{bio}</p>
