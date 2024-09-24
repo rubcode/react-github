@@ -92,7 +92,10 @@ export default [
       "allow_forking": true,
       "is_template": false,
       "web_commit_signoff_required": false,
-      "topics": [],
+      "topics": [
+        "javascript",
+        "html",
+        "css"],
       "visibility": "public",
       "forks": 0,
       "open_issues": 0,
