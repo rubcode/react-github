@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Language from './language'
 
 const RepoItemStyled = styled.div`
     padding-block: 1rem;
@@ -67,6 +68,14 @@ function RepoItem(props) {
                     </div>
                 ) : null
             }
+            {
+                props.language ? (
+                    <Language 
+                        name={props.language}
+                    />
+                ) : null
+            }
+
         </RepoItemStyled>
     )
 }
