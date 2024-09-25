@@ -3,15 +3,40 @@ import Profile from './Components/profile';
 import Filters from './Components/filters';
 import RepoList from './Components/repo-list';
 import Search from './Components/search'
-import RepoData from './Components/repos-data'
+//import RepoData from './Components/repos-data'
+import { useEffect,useState } from 'react';
+import { getUser,getRepos } from './Components/services/users';
 
 
 function App() {
+  const [user,setUser] = useState({})
+  const [repos,setRepos] = useState([])
+
+  useEffect(() => {
+    getUser('rubcode').then(({data,isError}) => {
+      if(isError){
+        console.log('No existe usuario');
+        return
+      }
+      setUser(data);
+    });
+  },[]);
+
+  useEffect(() => {
+    getRepos('rubcode').then(({data,isError}) => {
+      if(isError){
+        console.log('No existe repo de este usuario');
+        return
+      }
+      setRepos(data);
+    });
+  },[]);
+
   return (
     <Layout>
-      <Profile/>
+      <Profile {...user}/>
       <Filters/>
-      <RepoList repoList={RepoData}/>
+      <RepoList repoList={repos}/>
       <Search/>
     </Layout>
   );

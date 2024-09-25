@@ -1,9 +1,8 @@
 import styled from 'styled-components'
-import props from './profile-data'
+//import props from './profile-data'
 import Button from './button';
 import Icon from './Icon'
 
-const {name,login,bio, avatar_url, location, twitter_username,blog,followers,following} = props;
 const ProfileStyled = styled.div`
    grid-area: profile;
     .avatar{
@@ -43,7 +42,8 @@ const ProfileStyled = styled.div`
    }
 `
 
-function Profile() {
+function Profile(props) {
+    const {name,login,bio, avatar_url, location, twitter_username,blog,followers,following} = props;
     return (
         <ProfileStyled>
             <img className='avatar' width='278' height='278' src={avatar_url} alt={name}></img>
