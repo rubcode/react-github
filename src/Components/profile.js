@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components'
 //import props from './profile-data'
 import Button from './button';

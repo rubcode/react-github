@@ -1,3 +1,4 @@
+import React from 'react';
 import Heart from './heart'
 import ArrowDown from './arrow-down'
 import Book from './book'

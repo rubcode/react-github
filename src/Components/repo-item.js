@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components'
 import Language from './language'
 import Icon from './Icon'
