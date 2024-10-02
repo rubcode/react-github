@@ -39,4 +39,13 @@ function Button({text,link,className,Icon}) {
     )
 }
 
+export const ButtonContrast = styled(Button)`
+    background-color: var(--white);
+    color: var(--buttonBG);
+    &:hover{
+        background-color: var(--buttonBG);
+        color: var(--white);
+    }
+`
+
 export default Button
