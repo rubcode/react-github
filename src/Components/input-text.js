@@ -8,6 +8,7 @@ const InputText = styled.input`
     padding-block: .5rem;
     border-radius: .5rem;
     font: var(--body2-regular);
+    flex: 1;
 
 `
 

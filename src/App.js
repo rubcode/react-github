@@ -17,6 +17,7 @@ function App() {
   const [user,setUser] = useState({})
   const [repos,setRepos] = useState([])
   const [modal,setModal] = useState(false)
+  const [search,setSearch] = useState('')
 
   if(!username){
     username = "rubcode"
@@ -45,8 +46,8 @@ function App() {
     <Layout>
       <Modal isActive={modal} setModal={setModal}/>
       <Profile {...user}/>
-      <Filters/>
-      <RepoList repoList={repos}/>
+      <Filters setSearch={setSearch} repoListCount={repos.length}/>
+      <RepoList repoList={repos} search={search}/>
       <Search setModal= {setModal}/>
     </Layout>
   );

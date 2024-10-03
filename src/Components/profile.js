@@ -67,9 +67,9 @@ function Profile(props) {
             </div> 
             <p className='bio info'>{bio}</p>
             <p className='folowers info'>
-                🚀 {followers} <span>Folowers</span> 🚀 {following} <span>Folowing</span>
+                <Icon name="user"/> {followers} <span>Folowers</span> <Icon name="github"/> {following} <span>Folowing</span>
             </p>
-            <p className='location info'>🚀 {location}</p>
+            <p className='location info'><Icon  name="location"/> {location}</p>
             <a className='info' href={blog} target='_blank' rel='noreferrer'>{blog}</a>
             <a className='info' href={`http://www.twitter.com/${twitter_username}`} target='_blank' rel='noreferrer'>@{twitter_username}</a>
         </ProfileStyled>
