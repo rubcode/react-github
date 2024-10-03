@@ -30,6 +30,7 @@ const GlobalStylesStyled = createGlobalStyle`
         background: var(--bg);
         color: var(--grey);
         font: var(--body1-regular);
+        margin: 0;
     }
 `
 

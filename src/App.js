@@ -8,6 +8,7 @@ import Search from './Components/search'
 import { useEffect,useState } from 'react';
 import { getUser,getRepos } from './Components/services/users';
 import { useParams } from 'react-router-dom';
+import Modal from './Components/modal';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   let username = params.user
   const [user,setUser] = useState({})
   const [repos,setRepos] = useState([])
+  const [modal,setModal] = useState(false)
 
   if(!username){
     username = "rubcode"
@@ -41,10 +43,11 @@ function App() {
 
   return (
     <Layout>
+      <Modal isActive={modal} setModal={setModal}/>
       <Profile {...user}/>
       <Filters/>
       <RepoList repoList={repos}/>
-      <Search/>
+      <Search setModal= {setModal}/>
     </Layout>
   );
 }

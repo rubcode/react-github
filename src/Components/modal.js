@@ -5,6 +5,28 @@ import styled from 'styled-components';
 import Overlay from './overlay';
 import {ButtonContrast} from './button';
 import InputText from './input-text';
+import ReactDOM from 'react-dom'
+
+const modalRoot = document.getElementById("portal");
+
+class ModalPortal extends React.Component{
+    constructor(props){
+        super(props);
+        this.el = document.createElement('div');
+    }
+
+    componentWillUnmount(){
+        modalRoot.removeChild(this.el);
+    }
+
+    componentDidMount(){
+        modalRoot.appendChild(this.el);
+    }
+
+    render(){
+        return ReactDOM.createPortal(this.props.children,this.el);
+    }
+}
 
 const ModalContentStyled = styled.form`
     background: var(--bg);
@@ -26,7 +48,7 @@ const ModalContentStyled = styled.form`
 `;
 
 
-function ModalContent() {
+function ModalContent({setModal}) {
     const form = useRef(null)
     const navigator = useNavigate();
 
@@ -34,6 +56,7 @@ function ModalContent() {
         event.preventDefault();
         const formData = new FormData(form.current)
         navigator(`/${formData.get("username")}`)
+        setModal(false)
     }
 
     return (
@@ -50,4 +73,16 @@ function ModalContent() {
     )
 }
 
-export default ModalContent
+export default function Modal({isActive,setModal}){
+    if(isActive){
+        return(
+            <ModalPortal>
+                <ModalContent setModal={setModal}/>
+            </ModalPortal>
+        )
+    }
+    return null
+
+}
+
+
