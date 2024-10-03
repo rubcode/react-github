@@ -23,9 +23,13 @@ const FiltersStyled = styled.div`
 
 `
 
-function Filters({repoListCount = 100,setSearch}) {
+function Filters({repoListCount = 100,setSearch,setLanguage}) {
     function handlerChange(event){
         setSearch(event.target.value)
+    }
+
+    function handlerChangeSelector(event){
+        console.log(event.target.value)
     }
     return (
         <FiltersStyled>
@@ -37,22 +41,22 @@ function Filters({repoListCount = 100,setSearch}) {
                     onChange={handlerChange}
                 />
                 <div className='select-list'>
-                    <Selector>
-                        <option value="Tipo" disabled selected>Tipo</option>
+                    <Selector value="Tipo">
+                        <option value="Tipo" disabled>Tipo</option>
                         <option value="sources">Sources</option>
                         <option value="forks">Forks</option>
                         <option value="archived">Archived</option>
                         <option value="mirrors">Mirrors</option>
                     </Selector>
-                    <Selector>
-                        <option value="Lenguaje" disabled selected>Lenguaje</option>
+                    <Selector onChange={handlerChangeSelector}>
+                        <option value="Lenguaje">Lenguaje</option>
                         <option value="HTML">HTML</option>
                         <option value="JavaScript">JavaScript</option>
                         <option value="CSS">CSS</option>
                         <option value="PHP">PHP</option>
                     </Selector>
                     <Selector>
-                        <option value="Ordenar" disabled selected>Ordenar</option>
+                        <option value="Ordenar" disabled>Ordenar</option>
                         <option value="tiempo">Tiempo</option>
                         <option value="estrellas">Estrellas</option>
                     </Selector>
