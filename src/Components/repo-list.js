@@ -22,7 +22,7 @@ function RepoList({repoList,search,language}) {
     }
     if(language !== ''){
         list = list.filter(item => {
-            return item.language.search(language) >= 0
+            return item.language === language
         });
     }
     return (

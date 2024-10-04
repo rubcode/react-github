@@ -17,9 +17,9 @@ const SelectorStyled = styled.select`
     }
 `
 
-function Selector({children}) {
+function Selector({children,onChange,defaultValue}) {
     return (
-        <SelectorStyled>
+        <SelectorStyled defaultValue={defaultValue} onChange={onChange}>
             {children}
         </SelectorStyled>
     )

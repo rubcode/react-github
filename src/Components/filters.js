@@ -29,7 +29,7 @@ function Filters({repoListCount = 100,setSearch,setLanguage}) {
     }
 
     function handlerChangeSelector(event){
-        console.log(event.target.value)
+        setLanguage(event.target.value)
     }
     return (
         <FiltersStyled>
@@ -41,21 +41,22 @@ function Filters({repoListCount = 100,setSearch,setLanguage}) {
                     onChange={handlerChange}
                 />
                 <div className='select-list'>
-                    <Selector value="Tipo">
+                    <Selector defaultValue="Tipo">
                         <option value="Tipo" disabled>Tipo</option>
                         <option value="sources">Sources</option>
                         <option value="forks">Forks</option>
                         <option value="archived">Archived</option>
                         <option value="mirrors">Mirrors</option>
                     </Selector>
-                    <Selector onChange={handlerChangeSelector}>
-                        <option value="Lenguaje">Lenguaje</option>
+                    <Selector defaultValue="Lenguaje" onChange={handlerChangeSelector}>
+                        <option value="Lenguaje" disabled>Lenguaje</option>
+                        <option value="CSS">CSS</option>
                         <option value="HTML">HTML</option>
                         <option value="JavaScript">JavaScript</option>
-                        <option value="CSS">CSS</option>
                         <option value="PHP">PHP</option>
+                        <option value="Python">Python</option>
                     </Selector>
-                    <Selector>
+                    <Selector defaultValue="Ordenar" >
                         <option value="Ordenar" disabled>Ordenar</option>
                         <option value="tiempo">Tiempo</option>
                         <option value="estrellas">Estrellas</option>
