@@ -5,12 +5,15 @@ import Button from './button';
 import Icon from './Icon'
 
 const ProfileStyled = styled.div`
-   grid-area: profile;
+    grid-area: profile;
     .avatar{
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 1/1;
         border-radius: 50%;
         overflow: hidden;
         border: 1px solid var(--grey-1);
-        box-sizing:border-box;
+        box-sizing: border-box;
         margin-block-end: 1.5rem;
     }
     .name{
@@ -41,6 +44,7 @@ const ProfileStyled = styled.div`
         gap: 0.5rem;
         margin-block-end: 1.5rem;
    }
+   
    @media screen and (prefers-color-scheme: light) {
         .info,.name,.username{
             color: var(--black);
@@ -58,7 +62,7 @@ function Profile(props) {
     const {name,login,bio, avatar_url, location, twitter_username,blog,followers,following} = props;
     return (
         <ProfileStyled>
-            <img className='avatar' width='278' height='278' src={avatar_url} alt={name}></img>
+            <img className='avatar' src={avatar_url} alt={name}></img>
             <p className='name'>{name}</p>
             <p className='username'>{login}</p>
             <div className='buttons'>

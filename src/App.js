@@ -4,7 +4,6 @@ import Profile from './Components/profile';
 import Filters from './Components/filters';
 import RepoList from './Components/repo-list';
 import Search from './Components/search'
-//import RepoData from './Components/repos-data'
 import { useEffect,useState } from 'react';
 import { getUser,getRepos } from './Components/services/users';
 import { useParams } from 'react-router-dom';

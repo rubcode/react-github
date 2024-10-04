@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components'
 
 const LayoutStyled = styled.main`
-    display: grid;
     min-block-size: 100vh;
     max-inline-size: 75rem;
-    padding-block:2.5rem ;
+    padding-block:2.5rem;
+    margin: 0;
     @media screen and (min-width: 768px){
+        display: grid;
         grid-template-columns: 278px 1fr;
         grid-template-rows: auto 1fr;
         column-gap: 2rem;

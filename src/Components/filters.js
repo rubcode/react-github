@@ -20,6 +20,7 @@ const FiltersStyled = styled.div`
         display: flex;
         gap: .5rem;
     }
+    
 
 `
 
