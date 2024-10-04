@@ -41,9 +41,20 @@ const ProfileStyled = styled.div`
         gap: 0.5rem;
         margin-block-end: 1.5rem;
    }
+   @media screen and (prefers-color-scheme: light) {
+        .info,.name,.username{
+            color: var(--black);
+        }
+    }
 `
 
 function Profile(props) {
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    let color = "white";
+    if(!prefersDarkScheme){
+        color = "black";
+    }
+
     const {name,login,bio, avatar_url, location, twitter_username,blog,followers,following} = props;
     return (
         <ProfileStyled>
@@ -67,9 +78,9 @@ function Profile(props) {
             </div> 
             <p className='bio info'>{bio}</p>
             <p className='folowers info'>
-                <Icon name="user"/> {followers} <span>Folowers</span> <Icon name="github"/> {following} <span>Folowing</span>
+                <Icon name="user" color={color}/> {followers} <span>Folowers</span> <Icon name="github" color={color}/> {following} <span>Folowing</span>
             </p>
-            <p className='location info'><Icon  name="location"/> {location}</p>
+            <p className='location info'><Icon  name="location" color={color}/> {location}</p>
             <a className='info' href={blog} target='_blank' rel='noreferrer'>{blog}</a>
             <a className='info' href={`http://www.twitter.com/${twitter_username}`} target='_blank' rel='noreferrer'>@{twitter_username}</a>
         </ProfileStyled>

@@ -20,6 +20,15 @@ const ButtonStyled = styled.button`
         background: var(--white);
         color: var(--button)
     }
+    @media screen and (prefers-color-scheme: light) {
+        background: var(--white);
+        color: var(--black);
+        border: 1px solid var(--black);
+        &:hover{
+            background: var(--buttonBG);
+            color: var(--white)
+        }
+    }
 `
 
 
@@ -56,6 +65,11 @@ export const ButtonRounded = styled(Button)`
     &:hover{
         background: var(--buttonBG);
         transform: scale(1.1);
+    }
+    @media screen and (prefers-color-scheme: light) {
+        &:hover{
+            background: var(--white);
+        }
     }
 `
 

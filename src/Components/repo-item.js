@@ -56,6 +56,15 @@ const RepoItemStyled = styled.div`
         gap: 0.5rem;
         color: var(--grey-1);
     }
+    @media screen and (prefers-color-scheme: light) {
+        .details-item{
+            color: var(--black);
+        }
+        .topicItem{
+            background: #E8EEF8;
+        }
+    }
+    
 `
 
 function RepoItem(props) {
@@ -64,6 +73,11 @@ function RepoItem(props) {
     const diffMilliseconds = updatedAt - today;
     const diffDays = Math.ceil(diffMilliseconds / (1000*60*60*24));
     const timeAgo =  new Intl.RelativeTimeFormat("es").format(diffDays,'days')
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    let color = "white";
+    if(!prefersDarkScheme){
+        color = "black";
+    }
     return (
         <RepoItemStyled>
             <h3 className='title'>
@@ -95,11 +109,11 @@ function RepoItem(props) {
             }
             <div className='details'>
                 <span className='details-item'>
-                    <Icon name="star"/>
+                    <Icon name="star" color={color}/>
                     <span>{props.stargazers_count}</span>
                 </span>
                 <span className='details-item'>
-                    <Icon name="branch"/>
+                    <Icon color={color} name="branch"/>
                     <span>{props.forks_count}</span>
                 </span>
                 <span className='details-item'>

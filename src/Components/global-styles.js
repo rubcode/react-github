@@ -32,6 +32,13 @@ const GlobalStylesStyled = createGlobalStyle`
         font: var(--body1-regular);
         margin: 0;
     }
+
+    @media screen and (prefers-color-scheme: light) {
+        body {
+            background: var(--white);
+            color: var(--bg);
+        }
+    }
 `
 
 

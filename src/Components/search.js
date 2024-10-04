@@ -10,12 +10,17 @@ const SearchStyled = styled.div`
 `
 
 function Search({setModal}) {
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    let color = "white";
+    if(!prefersDarkScheme){
+        color = "black";
+    }
     function handlerClick(){
         setModal(true)
     }
     return (
         <SearchStyled onClick={handlerClick}>
-            <ButtonRounded Icon={<Icon name="search" size="24"/>}/>
+            <ButtonRounded Icon={<Icon name="search" size="24" color={color}/>}/>
         </SearchStyled>
     )
 }

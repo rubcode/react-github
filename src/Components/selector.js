@@ -10,6 +10,11 @@ const SelectorStyled = styled.select`
     option{
         background-color: var(--buttoBG);
     }
+    @media screen and (prefers-color-scheme: light) {
+        border: 1px solid var(--black);
+        background-color: var(--white);
+        color: var(--black);
+    }
 `
 
 function Selector({children}) {
