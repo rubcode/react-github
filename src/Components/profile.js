@@ -8,9 +8,7 @@ const ProfileStyled = styled.div`
     grid-area: profile;
     padding-inline: 1rem;
     .avatar{
-        width: 100%;
-        object-fit: cover;
-        aspect-ratio: 1/1;
+        width: 237px;
         border-radius: 50%;
         overflow: hidden;
         border: 1px solid var(--grey-1);
@@ -45,7 +43,35 @@ const ProfileStyled = styled.div`
         gap: 0.5rem;
         margin-block-end: 1.5rem;
    }
-   
+   @media screen and (max-width: 768px){
+        display: grid;
+        grid-template-columns: 278px 1fr;
+        grid-template-rows: auto auto 1fr;
+        column-gap: 1rem;
+        row-gap: 0.5rem;
+        padding-inline: 20px;
+        grid-template-areas: "avatar username" "details details" "buttons buttons" ;
+        align-items: center;
+        justify-content: center;
+        .avatar{
+            width: 85%;
+            grid-area: avatar;
+        }
+        .box-username{
+            grid-area: username;
+        }
+        .buttons{
+            align-items: center;
+            justify-content: center;
+            grid-area: buttons;
+        }
+        .box-profile-details{
+            grid-area: details;
+        }
+    }
+    @media screen and (max-width: 500px){
+        grid-template-columns: 180px 1fr;
+    }
    @media screen and (prefers-color-scheme: light) {
         .info,.name,.username{
             color: var(--black);
