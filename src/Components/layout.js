@@ -3,9 +3,10 @@ import styled from 'styled-components'
 
 const LayoutStyled = styled.main`
     min-block-size: 100vh;
+    margin: auto;
     max-inline-size: 75rem;
-    padding-block:2.5rem;
-    margin: 0;
+    padding-block: 2.5rem;
+    padding-inline: 1rem;
     @media screen and (min-width: 768px){
         display: grid;
         grid-template-columns: 278px 1fr;

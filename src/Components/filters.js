@@ -21,7 +21,13 @@ const FiltersStyled = styled.div`
         gap: .5rem;
     }
     
-
+    @media screen and (max-width: 950px) {
+        padding-inline: 1rem;
+        .action-list{
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
 `
 
 function Filters({repoListCount = 100,setSearch,setLanguage}) {

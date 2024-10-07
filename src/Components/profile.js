@@ -6,6 +6,7 @@ import Icon from './Icon'
 
 const ProfileStyled = styled.div`
     grid-area: profile;
+    padding-inline: 1rem;
     .avatar{
         width: 100%;
         object-fit: cover;
@@ -62,9 +63,14 @@ function Profile(props) {
     const {name,login,bio, avatar_url, location, twitter_username,blog,followers,following} = props;
     return (
         <ProfileStyled>
-            <img className='avatar' src={avatar_url} alt={name}></img>
-            <p className='name'>{name}</p>
-            <p className='username'>{login}</p>
+            <div className='box-avatar'>
+                <img className='avatar' src={avatar_url} alt={name}></img>
+            </div>
+            <div className='box-username'>
+                <p className='name'>{name}</p>
+                <p className='username'>{login}</p>
+            </div>
+            
             <div className='buttons'>
                 <Button
                     text="Follow"
@@ -80,13 +86,16 @@ function Profile(props) {
                     />}
                 />
             </div> 
-            <p className='bio info'>{bio}</p>
-            <p className='folowers info'>
-                <Icon name="user" color={color}/> {followers} <span>Folowers</span> <Icon name="github" color={color}/> {following} <span>Folowing</span>
-            </p>
-            <p className='location info'><Icon  name="location" color={color}/> {location}</p>
-            <a className='info' href={blog} target='_blank' rel='noreferrer'>{blog}</a>
-            <a className='info' href={`http://www.twitter.com/${twitter_username}`} target='_blank' rel='noreferrer'>@{twitter_username}</a>
+            <div className='box-profile-details'>
+                <p className='bio info'>{bio}</p>
+                <p className='folowers info'>
+                    <Icon name="user" color={color}/> {followers} <span>Folowers</span> <Icon name="github" color={color}/> {following} <span>Folowing</span>
+                </p>
+                <p className='location info'><Icon  name="location" color={color}/> {location}</p>
+                <a className='info' href={blog} target='_blank' rel='noreferrer'>{blog}</a>
+                <a className='info' href={`http://www.twitter.com/${twitter_username}`} target='_blank' rel='noreferrer'>@{twitter_username}</a>
+            </div>
+            
         </ProfileStyled>
     )
 }

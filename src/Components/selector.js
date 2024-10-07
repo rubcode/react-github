@@ -6,6 +6,7 @@ const SelectorStyled = styled.select`
     background-color: var(--grey-2);
     color: var(--white);
     padding-inline: 1rem;
+    padding-block: 0.5rem ;
     border-radius: .5rem;
     option{
         background-color: var(--buttoBG);
